@@ -1,0 +1,15 @@
+group() {
+	linear_extrude(height = 9, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 12, $fs = 2) {
+		group() {
+			difference() {
+				square(size = [80, 86], center = false);
+				polygon(points = [[0, 10], [20, 25], [20, 61], [0, 76]], paths = undef, convexity = 1);
+				multmatrix([[1, 0, 0, 80], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+					multmatrix([[-1, 0, 1.22465e-16, 0], [0, 1, 0, 0], [-1.22465e-16, 0, -1, 0], [0, 0, 0, 1]]) {
+						polygon(points = [[0, 10], [20, 25], [20, 61], [0, 76]], paths = undef, convexity = 1);
+					}
+				}
+			}
+		}
+	}
+}
