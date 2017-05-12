@@ -1,3 +1,4 @@
+
 use <moteur_roue.scad>
 use <piece_fixation.scad>
 
@@ -164,14 +165,15 @@ module robot()
 			linear_extrude(1) balise_haut(epaisseur);
 	}
 	// patins
-	translate([profondeur_robot-15-epaisseur,0])
+	largeur_patin=30;
+	translate([profondeur_robot-largeur_patin-epaisseur,0])
 	{
 		// gauche
-		translate([0,largeur_robot/2-epaisseur-15])
-			patin(15);
+		translate([0,largeur_robot/2-epaisseur-largeur_patin])
+			patin(largeur_patin);
 		// droite
 		translate([0,-largeur_robot/2+epaisseur])
-			patin(15);
+			patin(largeur_patin);
 	}
 	// balise gauche
 	translate([profondeur_robot/2-cote_support_balise/2,cote_support_balise/2,hauteur_robot]) rotate([90,0,0])
