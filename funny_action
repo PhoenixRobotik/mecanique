@@ -1,0 +1,17 @@
+from solid import *
+from solid.utils import *
+
+SEGMENTS=50
+
+thickness=3
+start_radius=20/2
+end_radius=1
+final_angle=90
+final_center_to_center_len=25
+step = 1
+
+d = cylinder(d=24,h=19)
+d-= translate([0,0,-0.1]) (cylinder(d=22,h=19+0.2))
+d-= rotate([0,90,0]) (translate([-19/2,0,24/2-3])(cylinder(d=10,h=5)))
+
+scad_render_to_file(d, "funny_action(generated).scad", file_header='$fn = %s;' % SEGMENTS)
